@@ -6,9 +6,11 @@ import UIKit
 class ViewController: UIViewController {
     // lazy because in swift you can use something not before it is completly initialized
     // lazy could not have a didSet (property observer)
-    lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count + 1) / 2)
+    lazy var game = Concentration(numberOfPairsOfCards: numberOfPairsOfCards)
+    var numberOfPairsOfCards: Int { return (cardButtons.count+1) / 2 }
     // cards.count + 1 because round up if there will be 3 cards ... but the last pair did not match
     // but the game has enough cards
+    
     var flipCount = 0 {
         didSet {  // property observer
             flipCountLabel.text = "Flips: \(flipCount)"

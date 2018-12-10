@@ -61,11 +61,11 @@
 		2BCEF14B213A73990074B6C1 /* Swift Course Standford Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				2BCEF150213A73990074B6C1 /* Main.storyboard */,
+				2BCEF14E213A73990074B6C1 /* ViewController.swift */,
 				2B537364213BD55600630F59 /* Concentration.swift */,
 				2B537366213BD61800630F59 /* Card.swift */,
 				2BCEF15E213A75AC0074B6C1 /* Supporting Files */,
-				2BCEF14E213A73990074B6C1 /* ViewController.swift */,
-				2BCEF150213A73990074B6C1 /* Main.storyboard */,
 				2BCEF158213A739A0074B6C1 /* Info.plist */,
 			);
 			path = "Swift Course Standford Concentration";
