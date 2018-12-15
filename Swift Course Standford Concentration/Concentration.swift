@@ -14,17 +14,28 @@ struct Concentration {
     private(set) var cards = [Card]()
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            var foundIndex: Int?
-            for index in cards.indices {
-                if cards[index].isFaceUp {
-                    if foundIndex == nil {
-                        foundIndex = index
-                    } else {
-                        return nil
-                    }
-                }
-            }
-            return foundIndex
+            // Second version with closure and filter
+            // let faceUpCardIndices = cards.indices.filter { cards[$0].isFaceUp }  // now tidy up with the extension for collection
+            // return faceUpCardIndices.count == 1 ? faceUpCardIndices.first : nil
+            // now with extension and closure
+            
+            // Third version with extension Collection
+            return cards.indices.filter { cards[$0].isFaceUp }.oneAndOnly
+            // let ch = "hello".oneAndOnly  // nil
+            // let h = "h".oneAndOnly // h
+
+// First version without closure
+//            var foundIndex: Int?
+//            for index in cards.indices {
+//                if cards[index].isFaceUp {
+//                    if foundIndex == nil {
+//                        foundIndex = index
+//                    } else {
+//                        return nil
+//                    }
+//                }
+//            }
+//            return foundIndex
         }
         set {
             for index in cards.indices {
@@ -56,5 +67,11 @@ struct Concentration {
                 indexOfOneAndOnlyFaceUpCard = index
             }
         }
+    }
+}
+
+extension Collection {
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
     }
 }
