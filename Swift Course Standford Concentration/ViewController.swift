@@ -50,12 +50,19 @@ class ViewController: UIViewController {
     @IBOutlet private var cardButtons: [UIButton]!
     
     private var emojiChoices = "😈👻🎃🙀🦇🍭🍬🍎🍒🍩🎾"
-    typealias themes = [String: (String, UIColor, UIColor)]
+    typealias ThemeData = (emoji: String, cardColor: UIColor, backGroundColor: UIColor)
     
-    private var newEmojiChoices:themes = [ "sport":     ("⚽️🏀🎱⛷🧗🏻‍♂️🏌️‍♀️🏄‍♀️🚣🏼‍♀️🤺🏸🏓🛹🏂🤸‍♂️🎾", #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)),
-                                           "fruits":    ("🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🥭🍍🥝", #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)),
-                                           "helloween": ("🦇👻🎃💣🔫🦉❄️🗡⚔️🤪😈👺🤡👹👽", #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-                                         ]
+    private var themes:[String: ThemeData] = [ "sport":     ("⚽️🏀🎱⛷🧗🏻‍♂️🏌️‍♀️🏄‍♀️🚣🏼‍♀️🤺🏸🏓🛹🏂🤸‍♂️🎾", #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)),
+                                               "fruits":    ("🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🥭🍍🥝", #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)),
+                                               "helloween": ("🦇👻🎃💣🔫🦉❄️🗡⚔️🤪😈👺🤡👹👽", #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+                                             ]
+                                                      
+    private var newTheme:ThemeData  {
+        let randomIndex = themes.count.arc4random
+        let key = Array(themes.keys)[randomIndex]
+        return themes[key]!
+        
+    }
     
     // dict Card:String
     private var emoji = [Card:String]()
