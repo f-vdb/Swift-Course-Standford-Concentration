@@ -187,6 +187,9 @@
                                         <state key="normal" title="New Game">
                                             <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="touchNewGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pRS-Jy-gwU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -205,6 +208,7 @@
                     </view>
                     <connections>
                         <outlet property="flipCountLabel" destination="7iT-No-a4U" id="YP8-ME-KFd"/>
+                        <outlet property="newGameButton" destination="Npa-8d-LPf" id="4Ng-eX-Xkp"/>
                         <outletCollection property="cardButtons" destination="Bxz-OI-Phw" collectionClass="NSMutableArray" id="Z9K-AC-PxB"/>
                         <outletCollection property="cardButtons" destination="KGR-xW-SCV" collectionClass="NSMutableArray" id="omV-uv-Im8"/>
                         <outletCollection property="cardButtons" destination="emk-Aw-UTT" collectionClass="NSMutableArray" id="KdI-Qw-QgY"/>
