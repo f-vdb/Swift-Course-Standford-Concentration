@@ -11,11 +11,16 @@ class ViewController: UIViewController {
     // cards.count + 1 because round up if there will be 3 cards ... but the last pair did not match
     // but the game has enough cards
     
-    private(set) var flipCount = 0 {
+    private(set) var flipCount = 90 {
         didSet {  // property observer
             updateFlipCountLabel()
         }
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //startGame()
+    }
+    
     
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key: Any] = [
