@@ -3,11 +3,14 @@
 
 import Foundation
 
-// struct -> no inheritance
-// struct -> value Type (it gets copied)
-// class -> reference Type
 struct Card: Hashable {
-    // I need by 
+    private static var identifierFactory = 0
+    
+    private static func getUniqueIdentifier() -> Int {
+        identifierFactory += 1 // in an static function the name Card.identifierFactory isn't needed
+        return Card.identifierFactory
+    }
+    
     var hashValue: Int { return identifier}
     
     static func ==(lhs: Card, rhs: Card) -> Bool {
@@ -18,12 +21,7 @@ struct Card: Hashable {
     var isMatched = false
     private var identifier: Int
     
-    private static var identifierFactory = 0
-
-    private static func getUniqueIdentifier() -> Int {
-        identifierFactory += 1 // in an static function the name Card.identifierFactory isn't needed
-        return Card.identifierFactory
-    }
+    
     init() {
         self.identifier = Card.getUniqueIdentifier()
     }

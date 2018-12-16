@@ -12,6 +12,7 @@ import Foundation
 // model
 struct Concentration {
     private(set) var cards = [Card]()
+    var flipCount = 0
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             // Second version with closure and filter
